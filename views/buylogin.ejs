@@ -1,0 +1,48 @@
+<% include header %>
+
+<div class="form-v9">
+	<div class="page-content">
+
+		<div class="form-v9-content" style="background-image: url('images/form_4.jpg')">
+
+			<form class="form-detail" action="/buylogin" method="post">
+				<h2 color="black">LogIn for Buy</h2>
+				<div class="row mb-5">
+					<font color="red"><b><%= output %></b></font><br>
+
+					<div class="col-12 text-center">
+						<h3 class="section-sub-title" style="color: aliceblue">Sign In</h3>
+						<h2 class="section-title mb-3">LogIn</h2>
+					</div>
+				</div>
+				<div class="form-row-total">
+
+					<div class="form-row">
+						<input type="text" name="email" id="your-email" class="input-text" placeholder="Your Email"
+                            required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}">
+                        <input type="hidden" name="pid" value="<%= pid %>" />
+                        <input type="hidden" name="price" value="<%= price %>" />
+                            
+					</div>
+				</div>
+				<div class="form-row-total">
+					<div class="form-row">
+						<input type="password" name="password" id="password" class="input-text"
+							placeholder="Your Password" required>
+					</div>
+				</div>
+				<table>
+					<tr>
+						<td><input type="checkbox" name="chk" value="chk" />Remember Me</td>
+					</tr>
+				</table>
+				<div class="form-row-last">
+					<input type="submit" name="login" class="register" value="LogIn">
+				</div>
+				
+			</form>
+			
+		</div>
+	</div>
+</div>
+<% include footer %>

@@ -1,0 +1,57 @@
+<% include user-nav %>
+
+
+<div class="form-v9">
+    <div class="page-content">
+
+        <div class="form-v9-content" style="background-image: url('/images/form_3.jpg')">
+            <center>
+                <br>
+                <h2 style="color: black"> <b>Place order here!!!!</b> </h2>
+
+                <h3>Product-id : <%= pid %></h3>
+                <h3>Price : <%= price %></h3>
+                <h3 style="color: whitesmoke">User-id : <b><%= sunm %></b></h3>
+                <br>
+                <!-- PayPal payment form for displaying the buy button -->
+                <form action="<%= PAYPAL_URL %>" method="post">
+                    <!-- Identify your business so that you can collect the payments. -->
+                    <input type="hidden" name="business" value="<%= PAYPAL_ID %>">
+
+                    <!-- Specify a Buy Now button. -->
+                    <input type="hidden" name="cmd" value="_xclick">
+
+                    <!-- Specify details about the item that buyers will purchase. -->
+                    <input type="hidden" name="item_name" value="<%= pid %>">
+                    <input type="hidden" name="item_number" value="<%= pid %>">
+                    <input type="hidden" name="amount" value="<%=     price %>">
+                    <input type="hidden" name="currency_code" value="USD">
+
+                    <!-- Specify URLs -->
+                    <input type="hidden" name="return"
+                        value="http://localhost:4000/payment?pid=<%= pid %>&price=<%= price %>&uid=<%= sunm %>">
+                    <input type="hidden" name="cancel_return" value="http://localhost:4000/cancel">
+
+                    <!-- Display the payment button. -->
+                    <input type="image" name="submit" border="0"
+                        src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif">
+                </form>
+            </center>
+
+
+            <br class="clearfix" />
+        </div>
+
+
+
+    </div>
+</div>
+</div>
+
+
+
+
+
+
+
+<% include footer %>

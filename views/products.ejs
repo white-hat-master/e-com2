@@ -1,0 +1,54 @@
+<% include header %>
+
+<div class="site-section" id="products-section">
+    <div class="container">
+      <div class="site-section bg-light">
+        <div class="container">
+          <div class="row mb-5 justify-content-center">
+            <div class="col-md-6 text-center">
+              <h3 class="section-sub-title">Awesome Products</h3>
+              <h2 class="section-title mb-3">New Products</h2>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae nostrum natus excepturi
+                fuga ullam accusantium vel ut eveniet aut consequatur laboriosam ipsam.</p>
+            </div>
+          </div>
+          <div class="row">
+            <% for(let i in clist){ %>
+  
+            <div class="col-lg-4 col-md-6 mb-5">
+              <div class="product-item">
+                <a href="/view-subcat?cnm=<%= clist[i].catnm%>">
+                  <figure>
+                    <img src="uploads/caticon/<%= clist[i].caticonnm %>" alt="Image" class="img-fluid">
+                  </figure>
+                </a>
+                <div class="px-4">
+                  <h3><a href="/view-subcat?cnm=<%= clist[i].catnm %>"><b><%= clist[i].catnm %></b></a></h3>
+                  <div class="mb-3">
+                    <span class="meta-icons mr-3"><a href="#" class="mr-2"><span
+                          class="icon-star text-warning"></span></a>
+                      5.0</span>
+                    <span class="meta-icons wishlist"><a href="#" class="mr-2"><span class="icon-heart"></span></a>
+                      29</span>
+                  </div>
+                  <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+                  <div>
+                    <a href="/view-subcat?cnm=<%= clist[i].catnm  %>"
+                      class="btn btn-black btn-outline-black ml-1 rounded-0">View</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% } %>
+  
+  
+          </div>
+        </div>
+      </div>
+  
+  
+  
+  
+    </div>
+      <!---product section end-->         
+    <% include footer %>

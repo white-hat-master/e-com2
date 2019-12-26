@@ -1,0 +1,35 @@
+<% include admin-nav  %>
+
+<div class="form-v9">
+
+    <div class="page-content">
+
+        <div class="form-v9-content" style="background-image: url('/images/form_4.jpg')">
+
+
+            <form class="form-detail" action="/admin/addcat" enctype="multipart/form-data" method="post">
+                <font color="yellowblue"><b><%= sunm  %></b></font><br>
+                <font color="green"><%= output  %></font>
+
+                <table cellspacing='10'>
+                    <tr>
+                        <td style="color: black">Category Name</td>
+                        <td><input type="text" name="catnm" style="color: black" placeholder="Enter Category Name" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="color: black">Category Icon</td>
+                        <td><input type="file" name="caticon" style="color: black" /></td>
+                    </tr>
+                    <tr>
+                        <td><input type='submit' class="register" style="color: black" value='Add' /></td>
+                    </tr>
+                </table>
+
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+
+<% include footer %>

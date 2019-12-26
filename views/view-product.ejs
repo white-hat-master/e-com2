@@ -1,0 +1,47 @@
+<% include header %>
+
+<div class="site-section bg-light">
+
+    <div class="container">
+        <div class="row mb-5 justify-content-center">
+            <div class="col-md-6 text-center">
+                <br><br>
+                <h3 class="section-sub-title">Total Product : <%= plist.length %></h3>
+                <h2 class="section-title mb-3"><%= scnm %></h2>
+            </div>
+        </div>
+        <% for(let i in plist ) { %>
+        <div class="bg-white py-4 mb-4">
+            <div class="row mx-4 my-4 product-item-2 align-items-start">
+                <div class="col-md-6 mb-5 mb-md-0">
+                    <a href="/buylogin?pid=<%= plist[i].pid %>&price=<%= plist[i].price %>">
+                        <img src="uploads/products/<%= plist[i].f1_name %>" alt="Image" class="img-fluid">
+                    </a>
+                </div>
+
+                <div class="col-md-5 ml-auto product-title-wrap">
+                    <span class="number">New</span>
+                    <h3 class="text-black mb-4 font-weight-bold"><%= plist[i].title %></h3>
+                    <p class="mb-4"><%= plist[i].des%></p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus soluta assumenda sed optio,
+                        error
+                        at?</p>
+
+                    <div class="mb-4">
+                        <h3 class="text-black font-weight-bold h5">Price:</h3>
+                        <div class="price">&#8377;<%= plist[i].price%></div>
+                    </div>
+                    <p>
+                        <a href="/buylogin?pid=<%= plist[i].pid %>&price=<%= plist[i].price %>"
+                            class="btn btn-black rounded-0 d-block d-lg-inline-block">Buy Now</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <% } %>
+
+
+    </div>
+</div>
+
+<% include footer %>

@@ -1,0 +1,126 @@
+<% include user-nav  %>
+
+<script>
+    function fetchsubcat(cnm) {
+        var xhttp = new XMLHttpRequest()
+        xhttp.open('GET', 'http://localhost:4000/users/fetchsubcat?cnm=' + cnm, true)
+        xhttp.send()
+
+        xhttp.onreadystatechange = function () {
+            if (xhttp.readyState == 4 && xhttp.status == 200) {
+                let subcatdata = JSON.parse(xhttp.responseText)
+                var sclist = '<option>select sub category</option>'
+                for (let i in subcatdata)
+                    sclist += ("<option>" + subcatdata[i].subcatnm + "</option>")
+                document.getElementById('response').innerHTML = sclist
+            }
+        }
+
+    }
+</script>
+
+<div id="page">
+
+    <center>
+        <h1 style="color: black">Add Product Here!!!</h1>
+        <font color="orange"><%= output %></font>
+        <form method="POST" action="/users/addProduct" enctype="multipart/form-data">
+            <table cellspacing="10">
+                <tr>
+                    <td style="color: black">Title</td>
+                    <td><input type="text" name="title" /></td>
+                </tr>
+
+
+
+                <tr>
+                    <td style="color: black">Category</td>
+                    <td>
+                        <select name='cat' onchange="fetchsubcat(this.value)">
+                            <option>select category</option>
+                            <% for(let i in clist) { %>
+                            <option><%= clist[i].catnm %></option>
+                            <% } %>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="color: black">Sub Category</td>
+                    <td>
+                        <select id="response" name='subcat'>
+                            <option>select sub category</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="color: black">City</td>
+                    <td>
+                        <select name='city' style="width:250px;">
+                            <option>select city</option>
+                            <optgroup label="Madhya Pradesh">
+                                <option>Indore</option>
+                                <option>Ujjain</option>
+                                <option>Bhopal</option>
+                            </optgroup>
+                            <optgroup label="Maharastra">
+                                <option>Mumbai</option>
+                                <option>Pune</option>
+                                <option>Nasik</option>
+                            </optgroup>
+                        </select>
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+                    <td style="color: black">Ads Description</td>
+                    <td>
+                        <textarea name='des'></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="color: black">Upload Pic</td>
+                    <td>
+                        Ads Image1 : <input type='file' name='f1' />
+                        <br /><br />
+                        Ads Image2 : <input type='file' name='f2' />
+                        <br /><br />
+                        Ads Image3 : <input type='file' name='f3' />
+                        <br /><br />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="color: black">Price</td>
+                    <td><input type="text" name="price" />
+                        <input type="hidden" name="email" value="<%= sunm %>" />
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+
+                    <td colspan="2">
+                        <center>
+                            <input type="submit" value="Add Post" />
+                        </center>
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+
+    </center>
+
+
+
+
+    <br class="clearfix" />
+</div>
+
+<% include footer %>
